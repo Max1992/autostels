@@ -1,0 +1,46 @@
+CREATE TABLE stock (
+	stock_id integer, 
+	product_id integer, 
+	quantity integer
+);
+
+CREATE TABLE log (
+	log_id integer, 
+	log_date timestamp
+);
+
+CREATE TABLE logstock (
+	ls_id integer, 
+	log_id integer, 
+	product_id integer, 
+	quantity integer
+);
+
+INSERT INTO stock VALUES(1,10,3);
+INSERT INTO stock VALUES(2,20,9);
+
+INSERT INTO log VALUES(1, '2003-02-01 00:00:00.000');
+INSERT INTO log VALUES(2, '2003-02-02 00:00:00.000');
+INSERT INTO log VALUES(3, '2003-02-03 00:00:00.000');
+INSERT INTO log VALUES(4, '2003-02-04 00:00:00.000');
+INSERT INTO log VALUES(5, '2003-02-05 00:00:00.000');
+INSERT INTO log VALUES(6, '2003-02-06 00:00:00.000');
+INSERT INTO log VALUES(7, '2003-02-02 00:00:00.000');
+INSERT INTO log VALUES(8, '2003-02-02 00:00:10.000');
+INSERT INTO log VALUES(9, '2003-02-02 00:10:00.000');
+INSERT INTO log VALUES(10,'2003-02-02 00:21:00.000');
+
+INSERT INTO logstock VALUES (1001,1,10,1);
+INSERT INTO logstock VALUES (1002,2,10,-1);
+INSERT INTO logstock VALUES (1003,2,10,2);
+INSERT INTO logstock VALUES (1004,3,10,-2);
+INSERT INTO logstock VALUES (1005,3,10,4);
+INSERT INTO logstock VALUES (1006,4,10,-4);
+INSERT INTO logstock VALUES (1007,5,10,5);
+INSERT INTO logstock VALUES (1008,6,10,-5);
+INSERT INTO logstock VALUES (1009,6,10,3);
+INSERT INTO logstock VALUES (1010,7,20,11);
+INSERT INTO logstock VALUES (1011,8,20,-11);
+INSERT INTO logstock VALUES (1012,9,20,10);
+INSERT INTO logstock VALUES (1013,10,20,-10);
+INSERT INTO logstock VALUES (1014,10,20,9);

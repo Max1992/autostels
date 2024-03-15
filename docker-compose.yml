@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  stock_db:
+    image: postgres:13.1-alpine
+    container_name: stock_db
+    restart: always
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - stock_db_data:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_USER: postgres      
+      POSTGRES_PASSWORD: pwd
+      POSTGRES_DB: stock
+      PGDATA: /var/lib/postgresql/data/pgdata    
+    ports:
+      - 9080:5432
+      
+volumes:
+  stock_db_data:
+    driver: local
